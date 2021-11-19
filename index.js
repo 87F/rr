@@ -12,4 +12,11 @@ function Roulette () {
     }
 }
 
-(new Roulette()).init();
+const game = new Roulette();
+
+document.onclick = (e) => {
+    const element = e.target;
+    if (element.tagName === 'DIV') console.log('you clicked a dot')
+}
+
+game.init();
