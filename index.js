@@ -9,7 +9,8 @@ function Roulette () {
 
     let dots = [0, 0,  0, 0, 0,0];
     dots[random_number(0, number_of_dots)] = 1;
-    console.log(dots)
+    let tries = 0;
+    let tried = new Set()
 
     this.init = () => {
         for (let i = 0; i < number_of_dots; i++) {
@@ -23,10 +24,20 @@ function Roulette () {
     this.flip = (position) => {
         const dot = document.getElementById(`dot-${position}`)
 
+        tries++;
+        tried.add(position)
+
         if (dots[position]) {
             dot.style.backgroundColor = '#ee3322';
             alert('BOOM!');
             return
+        } else {
+            dot.style.backgroundColor = '#ffffff'
+        }
+
+        if (tries === number_of_dots - 1) {
+            alert('you win!')
+            this.init()
         }
     }
 }
