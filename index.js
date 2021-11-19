@@ -7,12 +7,18 @@ const main = document.getElementById('main')
 
 function Roulette () {
 
-    let dots = [0, 0,  0, 0, 0,0];
-    dots[random_number(0, number_of_dots)] = 1;
+    let dots = [];
     let tries = 0;
     let tried = new Set()
 
     this.init = () => {
+        main.innerHTML = '';
+        dots = [0, 0,  0, 0, 0,0];
+        dots[random_number(0, number_of_dots)] = 1;
+        tries = 0
+        tried = new Set();
+
+
         for (let i = 0; i < number_of_dots; i++) {
             const div = document.createElement('div')
             div.id = `dot-${i}`
@@ -30,6 +36,7 @@ function Roulette () {
         if (dots[position]) {
             dot.style.backgroundColor = '#ee3322';
             alert('BOOM!');
+            this.init();
             return
         } else {
             dot.style.backgroundColor = '#ffffff'
