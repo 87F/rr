@@ -59,4 +59,20 @@ document.onclick = (e) => {
     }
 }
 
+document.onkeydown = ({ key}) => {
+    switch(key) {
+        case '1':
+        case '2':
+        case '3':
+        case '4':
+        case '5':
+        case '6': {
+            game.flip(+key - 1);
+            break;
+        }
+
+        default: return
+    }
+}
+
 game.init();
