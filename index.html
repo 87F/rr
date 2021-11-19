@@ -1,1 +1,30 @@
 <!doctype html>
+<title>roulettes</title>
+<meta name="author" content="josh">
+<style>
+*{margin:0;padding:0}
+body,html{height:100%}
+body{
+    background-color:#aaaaaa;
+    display:flex;
+    align-items: center;
+    justify-content:center;
+    text-align: center
+}
+
+#main {
+    display:grid;
+    grid-gap: 1em;
+    grid-template-columns: auto auto auto auto auto auto;
+}
+
+div{
+    padding:1em;
+    background: #030303;
+    border-radius: 50%;
+    cursor: pointer
+}
+
+</style>
+<script src="index.js"  defer></script>
+<main id="main"></main>
